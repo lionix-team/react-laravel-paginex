@@ -1,0 +1,44 @@
+{
+  "name": "react-laravel-paginex",
+  "version": "1.0.0",
+  "description": "Laravel Pagination with ReactJS (customizable)",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublishOnly": "babel ./src --out-dir ./dist -s inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lionix-team/react-laravel-paginex.git"
+  },
+  "keywords": [
+    "laravel",
+    "pagination",
+    "reactjs",
+    "react",
+    "paginate",
+    "lionix"
+  ],
+  "authors": [
+    {
+      "name": "Lionix Team",
+      "email": "packages@lionix-team.com"
+    },
+    {
+      "name": "Garik Harutyunyan",
+      "email": "garik.harutyunyan99@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "prop-types": "^15.7.2"
+  }
+}
