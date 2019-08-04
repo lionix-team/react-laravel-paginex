@@ -6,7 +6,10 @@ class Pagination extends Component {
         super(props);
         this.state = {
             options: {},
-            paginationData: {}
+            paginationData: {},
+            nextPageUrl: null,
+            prevPageUrl: null,
+            currentPage: null
         };
     }
 
@@ -50,50 +53,58 @@ class Pagination extends Component {
     // Generate pagination buttons
     generatePagination = () => {
         let paginationData = this.state.paginationData;
-        let options = this.state.options;
-        let current = paginationData.current_page,
-            last = paginationData.last_page,
-            delta = parseInt(options.numbersCountForShow),
-            left = current - delta,
-            right = current + delta + 1,
-            range = [],
-            rangeWithDots = [],
-            l;
-        for (let i = 1; i <= last; i++) {
-            if ((i === 1 || i === last) || (i >= left && i < right)) {
-                range.push(i);
-            }
-        }
-        for (let i of range) {
-            if (l) {
-                if (i - l === 2) {
-                    rangeWithDots.push(l + 1);
-                } else if (i - l !== 1) {
-                    rangeWithDots.push('...');
+        let pagination = (<div></div>);
+        if (Object.keys(paginationData).length) {
+            let options = this.state.options;
+            let current = paginationData.current_page ? paginationData.current_page : paginationData.meta.current_page,
+                last = paginationData.last_page ? paginationData.last_page : paginationData.meta.last_page,
+                delta = parseInt(options.numbersCountForShow),
+                left = current - delta,
+                right = current + delta + 1,
+                range = [],
+                rangeWithDots = [],
+                l;
+            for (let i = 1; i <= last; i++) {
+                if ((i === 1 || i === last) || (i >= left && i < right)) {
+                    range.push(i);
                 }
             }
-            rangeWithDots.push(i);
-            l = i;
+            for (let i of range) {
+                if (l) {
+                    if (i - l === 2) {
+                        rangeWithDots.push(l + 1);
+                    } else if (i - l !== 1) {
+                        rangeWithDots.push('...');
+                    }
+                }
+                rangeWithDots.push(i);
+                l = i;
+            }
+
+            let nextPageUrl = paginationData.next_page_url ? paginationData.next_page_url : paginationData.meta.next_page_url;
+            let prevPageUrl = paginationData.prev_page_url ? paginationData.prev_page_url : paginationData.meta.prev_page_url;
+            pagination = (
+                <ul className={options.containerClass}>
+                    {prevPageUrl ?
+                        <li className={options.prevButtonClass}
+                            onClick={() => this.handleClick(current - 1)}>
+                            <button type="button"
+                                    className={options.numberButtonClass}>{options.prevButtonText}</button>
+                        </li> : ""}
+                    {rangeWithDots.map((page, index) =>
+                        this.generateNumber(page, index)
+                    )}
+                    {nextPageUrl ?
+                        <li className={options.nextButtonClass}
+                            onClick={() => this.handleClick(current + 1)}>
+                            <button type="button"
+                                    className={options.numberButtonClass}>{options.nextButtonText}</button>
+                        </li>
+                        : ""}
+                </ul>
+            );
         }
-        return (
-            <ul className={options.containerClass}>
-                {paginationData.prev_page_url ?
-                    <li className={options.prevButtonClass}
-                        onClick={() => this.handleClick(paginationData.current_page - 1)}>
-                        <button type="button" className={options.numberButtonClass}>{options.prevButtonText}</button>
-                    </li> : ""}
-                {rangeWithDots.map((page, index) =>
-                    this.generateNumber(page, index)
-                )}
-                {paginationData.next_page_url ?
-                    <li className={options.nextButtonClass}
-                        onClick={() => this.handleClick(paginationData.current_page + 1)}>
-                        <button type="button"
-                                className={options.numberButtonClass}>{options.nextButtonText}</button>
-                    </li>
-                    : ""}
-            </ul>
-        )
+        return pagination;
     };
 
     generateNumber(page, index) {
