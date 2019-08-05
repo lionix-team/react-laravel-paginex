@@ -1,6 +1,6 @@
 {
   "name": "react-laravel-paginex",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Laravel Pagination with ReactJS (customizable)",
   "main": "dist/index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "paginate",
     "lionix"
   ],
-  "authors": [
+  "contributors": [
     {
       "name": "Lionix Team",
       "email": "packages@lionix-team.com"
