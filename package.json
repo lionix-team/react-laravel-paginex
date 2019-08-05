@@ -1,6 +1,6 @@
 {
   "name": "react-laravel-paginex",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Laravel Pagination with ReactJS (customizable)",
   "main": "dist/index.js",
   "scripts": {
