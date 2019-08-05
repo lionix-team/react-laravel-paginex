@@ -56,8 +56,8 @@ class Pagination extends Component {
         let pagination = (<div></div>);
         if (Object.keys(paginationData).length) {
             let options = this.state.options;
-            let current = paginationData.current_page ? paginationData.current_page : paginationData.meta.current_page,
-                last = paginationData.last_page ? paginationData.last_page : paginationData.meta.last_page,
+            let current = paginationData.hasOwnProperty('current_page') ? paginationData.current_page : paginationData.meta.current_page,
+                last = paginationData.hasOwnProperty('last_page') ? paginationData.last_page : paginationData.meta.last_page,
                 delta = parseInt(options.numbersCountForShow),
                 left = current - delta,
                 right = current + delta + 1,
@@ -81,8 +81,8 @@ class Pagination extends Component {
                 l = i;
             }
 
-            let nextPageUrl = paginationData.next_page_url ? paginationData.next_page_url : paginationData.meta.next_page_url;
-            let prevPageUrl = paginationData.prev_page_url ? paginationData.prev_page_url : paginationData.meta.prev_page_url;
+            let nextPageUrl = paginationData.hasOwnProperty('next_page_url') ? paginationData.next_page_url : paginationData.links.next;
+            let prevPageUrl = paginationData.hasOwnProperty('prev_page_url') ? paginationData.prev_page_url : paginationData.links.prev;
             pagination = (
                 <ul className={options.containerClass}>
                     {prevPageUrl ?
