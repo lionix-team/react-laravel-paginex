@@ -59,32 +59,32 @@ Then you'll be able to use pagination component.
 or
 ```javascript
 {
-    "data": [
+    data: [
         {
-            "id": 1,
-            "name": "Eladio Schroeder Sr.",
-            "email": "therese28@example.com",
+            id: 1,
+            name: "Eladio Schroeder Sr.",
+            email: "therese28@example.com",
         },
         {
-            "id": 2,
-            "name": "Liliana Mayert",
-            "email": "evandervort@example.com",
+            id: 2,
+            name: "Liliana Mayert",
+            email: "evandervort@example.com",
         }
     ],
-    "links":{
-        "first": "http://example.com/pagination?page=1",
-        "last": "http://example.com/pagination?page=1",
-        "prev": null,
-        "next": null
+    links:{
+        first: "http://example.com/pagination?page=1",
+        last: "http://example.com/pagination?page=1",
+        prev: null,
+        next: null
     },
-    "meta":{
-        "current_page": 1,
-        "from": 1,
-        "last_page": 1,
-        "path": "http://example.com/pagination",
-        "per_page": 15,
-        "to": 10,
-        "total": 10
+    meta:{
+        current_page: 1,
+        from: 1,
+        last_page: 1,
+        path: "http://example.com/pagination",
+        per_page: 15,
+        to: 10,
+        total: 10
     }
 }
 ```
