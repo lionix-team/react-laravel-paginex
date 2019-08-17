@@ -14,23 +14,19 @@ class Pagination extends Component {
     }
 
     componentDidMount() {
-        this.setState({options: this.props.options, paginationData: this.props.data});
         this.getProps(this.props);
     }
 
     componentWillReceiveProps(props, nextContext) {
-        this.setState({options: props.options, paginationData: props.data});
         this.getProps(props);
     }
 
     // Transform props
     getProps = (props) => {
         let defaultProps = Pagination.defaultProps.options;
-        let options = this.state.options;
+        let options = this.props.options;
         Object.keys(defaultProps).forEach(function (key) {
-            if (!options[key]) {
-                options[key] = props[key] ? props[key] : defaultProps[key];
-            }
+            options[key] = props[key] ? props[key] : props['options'][key] ? props['options'][key] : defaultProps[key];
         });
         this.setState({options: options, paginationData: props.data});
     };
@@ -47,7 +43,6 @@ class Pagination extends Component {
             parameters = this.props.requestParams;
         }
         parameters.page = page;
-        console.log('ddd');
         this.props.changePage(parameters);
     };
 
