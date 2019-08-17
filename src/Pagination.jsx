@@ -47,6 +47,7 @@ class Pagination extends Component {
             parameters = this.props.requestParams;
         }
         parameters.page = page;
+        console.log('ddd');
         this.props.changePage(parameters);
     };
 
@@ -88,8 +89,8 @@ class Pagination extends Component {
                     {prevPageUrl ?
                         <li className={options.prevButtonClass}
                             onClick={() => this.handleClick(current - 1)}>
-                            <button type="button"
-                                    className={options.numberButtonClass}>{options.prevButtonText}</button>
+                            <a href="javascript:void(0)"
+                               className={options.numberButtonClass}>{options.prevButtonText}</a>
                         </li> : ""}
                     {rangeWithDots.map((page, index) =>
                         this.generateNumber(page, index)
@@ -97,8 +98,8 @@ class Pagination extends Component {
                     {nextPageUrl ?
                         <li className={options.nextButtonClass}
                             onClick={() => this.handleClick(current + 1)}>
-                            <button type="button"
-                                    className={options.numberButtonClass}>{options.nextButtonText}</button>
+                            <a href="javascript:void(0)"
+                               className={options.numberButtonClass}>{options.nextButtonText}</a>
                         </li>
                         : ""}
                 </ul>
@@ -113,7 +114,7 @@ class Pagination extends Component {
             <li className={this.isCurrent(page) ? options.numberButtonClass + " " + options.activeClass :
                 options.numberButtonClass}
                 onClick={() => this.handleClick(page === '...' ? index + 1 : page)} key={index}>
-                <button type="button" className={options.numberClass}>{page}</button>
+                <a href="javascript:void(0)" className={options.numberClass}>{page}</a>
             </li>
         );
     }
