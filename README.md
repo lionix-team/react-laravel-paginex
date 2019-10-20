@@ -3,7 +3,14 @@
 [![](https://img.shields.io/npm/v/react-laravel-paginex.svg)](https://www.npmjs.com/package/react-laravel-paginex)
 
 `react-laravel-paginex` will provide you ability to easily
-create pagination from Laravel Pagination object.
+create pagination from Laravel Pagination object. 
+
+
+Fork of project react-laravel-paginex with some improvements and corrections
+
+#### Creators:
+- [Garik Harutyunyan](https://github.com/GHarutyunyan)
+- [Lionix Team](https://github.com/lionix-team)
 
 ## Installation
 
@@ -143,5 +150,4 @@ params=()=>{
 
 ## Credits
 
-- [Garik Harutyunyan](https://github.com/GHarutyunyan)
-- [Lionix Team](https://github.com/lionix-team)
+- [Luis Arce](https://github.com/luilliarcec)

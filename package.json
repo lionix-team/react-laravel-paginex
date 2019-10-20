@@ -1,6 +1,6 @@
 {
   "name": "react-laravel-paginex",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Laravel Pagination with ReactJS (customizable)",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lionix-team/react-laravel-paginex.git"
+    "url": "git+https://github.com/luilliarcec/react-laravel-paginex.git"
   },
   "keywords": [
     "laravel",
@@ -18,6 +18,10 @@
     "paginate",
     "lionix"
   ],
+  "author": {
+    "name": "Luis Arce",
+    "email": "luilliarcec@gmail.com"
+  },
   "contributors": [
     {
       "name": "Lionix Team",
