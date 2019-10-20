@@ -17,7 +17,7 @@ class Pagination extends Component {
         this.getProps(this.props);
     }
 
-    componentWillReceiveProps(props, nextContext) {
+    UNSAFE_componentWillReceiveProps(props, nextContext) {
         this.getProps(props);
     }
 
@@ -46,10 +46,28 @@ class Pagination extends Component {
         this.props.changePage(parameters);
     };
 
+    // Generate Prev Icon Or Text Buttons
+    generateButtonsPrev = () => {
+        let options = this.state.options;
+        if (options.iconButtons) {
+            return <i className={options.prevIconButton}/>
+        }
+        return options.prevButtonText;
+    };
+
+    // Generate Next Icon Or Text Buttons
+    generateButtonsNext = () => {
+        let options = this.state.options;
+        if (options.iconButtons) {
+            return <i className={options.nextIconButton}/>
+        }
+        return options.nextButtonText;
+    };
+
     // Generate pagination buttons
     generatePagination = () => {
         let paginationData = this.state.paginationData;
-        let pagination = (<div></div>);
+        let pagination;
         if (Object.keys(paginationData).length) {
             let options = this.state.options;
             let current = paginationData.hasOwnProperty('current_page') ? paginationData.current_page : paginationData.meta.current_page,
@@ -82,19 +100,25 @@ class Pagination extends Component {
             pagination = (
                 <ul className={options.containerClass}>
                     {prevPageUrl ?
-                        <li className={options.prevButtonClass}
-                            onClick={() => this.handleClick(current - 1)}>
-                            <a href="javascript:void(0)"
-                               className={options.numberButtonClass}>{options.prevButtonText}</a>
+                        <li className={options.prevButtonClass} onClick={(event) => {
+                            event.preventDefault();
+                            this.handleClick(current - 1)
+                        }}>
+                            <a href="" className={options.numberClass}>
+                                {this.generateButtonsPrev()}
+                            </a>
                         </li> : ""}
                     {rangeWithDots.map((page, index) =>
                         this.generateNumber(page, index)
                     )}
                     {nextPageUrl ?
-                        <li className={options.nextButtonClass}
-                            onClick={() => this.handleClick(current + 1)}>
-                            <a href="javascript:void(0)"
-                               className={options.numberButtonClass}>{options.nextButtonText}</a>
+                        <li className={options.nextButtonClass} onClick={(event) => {
+                            event.preventDefault();
+                            this.handleClick(current + 1)
+                        }}>
+                            <a href="" className={options.numberClass}>
+                                {this.generateButtonsNext()}
+                            </a>
                         </li>
                         : ""}
                 </ul>
@@ -107,18 +131,21 @@ class Pagination extends Component {
         let options = this.state.options;
         return (
             <li className={this.isCurrent(page) ? options.numberButtonClass + " " + options.activeClass :
-                options.numberButtonClass}
-                onClick={() => this.handleClick(page === '...' ? index + 1 : page)} key={index}>
-                <a href="javascript:void(0)" className={options.numberClass}>{page}</a>
+                options.numberButtonClass} key={index}>
+                <a href="" className={options.numberClass}
+                   onClick={(event) => {
+                       event.preventDefault();
+                       this.handleClick(page === '...' ? index + 1 : page)
+                   }}>{page}</a>
             </li>
         );
     }
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 {this.generatePagination()}
-            </div>
+            </React.Fragment>
         );
     }
 }
@@ -126,10 +153,13 @@ class Pagination extends Component {
 Pagination.defaultProps = {
     options: {
         containerClass: "pagination",
+        iconButtons: true,
         prevButtonClass: "page-item",
         prevButtonText: "Prev",
+        prevIconButton: "mdi mdi-chevron-left",
         nextButtonClass: "page-item",
         nextButtonText: "Next",
+        nextIconButton: "mdi mdi-chevron-right",
         numberButtonClass: "page-item",
         numberClass: "page-link",
         numbersCountForShow: 2,
@@ -141,10 +171,13 @@ Pagination.defaultProps = {
 Pagination.propTypes = {
     options: PropTypes.shape({
         containerClass: PropTypes.string,
+        iconButtons: PropTypes.bool,
         nextButtonClass: PropTypes.string,
         nextButtonText: PropTypes.string,
+        nextIconButton: PropTypes.string,
         prevButtonClass: PropTypes.string,
         prevButtonText: PropTypes.string,
+        prevIconButton: PropTypes.string,
         numberButtonClass: PropTypes.string,
         numberClass: PropTypes.string,
         numberCountForShow: PropTypes.number,

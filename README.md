@@ -91,16 +91,22 @@ or
 
 ## Customizations
 
-You can customize your pagination styles by overwriting default values.
+You can customize your pagination styles by overwriting default values. 
+If you do not want to use icons or do not have the default icon source (mdi) used in the project, 
+you can pass false as the value of iconButtons
+
 Available props for component:
 
 Prop Name           | Default Value
 -------------       | -------------
 containerClass      | pagination
+iconButtons         | true
 prevButtonClass     | page-item
 prevButtonText      | Prev
+prevIconButton      | mdi mdi-chevron-left
 nextButtonClass     | page-item
 nextButtonText      | Next
+nextIconButton      | mdi mdi-chevron-right
 numberButtonClass   | page-item
 numberClass         | page-link
 numbersCountForShow | 2
@@ -117,7 +123,8 @@ You have to define here only props which you want to overwrite.
 options:{
     containerClass: "pagination-container",
     prevButtonClass: "prev-button-class",
-    nextButtonText: "Next Page"
+    nextButtonText: "Next Page",
+    iconButtons: false,
     ...
 }
 ```
@@ -132,7 +139,7 @@ params=()=>{
     }
 }
 ```
-`<Pagination changePage={this.getData} data={data} options={options} requestParams={this.params()}/>`
+`<Pagination changePage={this.getData} data={data} options={options} iconButtons={false} requestParams={this.params()}/>`
 
 ## Credits
 
