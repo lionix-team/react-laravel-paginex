@@ -49,8 +49,8 @@ class Pagination extends Component {
     // Generate Prev Icon Or Text Buttons
     generateButtonsPrev = () => {
         let options = this.state.options;
-        if (options.iconButtons) {
-            return <i className={options.prevIconButton}/>
+        if (options.buttonIcons) {
+            return <i className={options.prevButtonIcon}/>
         }
         return options.prevButtonText;
     };
@@ -58,8 +58,8 @@ class Pagination extends Component {
     // Generate Next Icon Or Text Buttons
     generateButtonsNext = () => {
         let options = this.state.options;
-        if (options.iconButtons) {
-            return <i className={options.nextIconButton}/>
+        if (options.buttonIcons) {
+            return <i className={options.nextButtonIcon}/>
         }
         return options.nextButtonText;
     };
@@ -153,13 +153,13 @@ class Pagination extends Component {
 Pagination.defaultProps = {
     options: {
         containerClass: "pagination",
-        iconButtons: true,
+        buttonIcons: false,
         prevButtonClass: "page-item",
         prevButtonText: "Prev",
-        prevIconButton: "mdi mdi-chevron-left",
+        prevButtonIcon: "fa fa-chevron-left",
         nextButtonClass: "page-item",
         nextButtonText: "Next",
-        nextIconButton: "mdi mdi-chevron-right",
+        nextButtonIcon: "fa fa-chevron-right",
         numberButtonClass: "page-item",
         numberClass: "page-link",
         numbersCountForShow: 2,
@@ -171,13 +171,13 @@ Pagination.defaultProps = {
 Pagination.propTypes = {
     options: PropTypes.shape({
         containerClass: PropTypes.string,
-        iconButtons: PropTypes.bool,
+        buttonIcons: PropTypes.bool,
         nextButtonClass: PropTypes.string,
         nextButtonText: PropTypes.string,
-        nextIconButton: PropTypes.string,
+        nextButtonIcon: PropTypes.string,
         prevButtonClass: PropTypes.string,
         prevButtonText: PropTypes.string,
-        prevIconButton: PropTypes.string,
+        prevButtonIcon: PropTypes.string,
         numberButtonClass: PropTypes.string,
         numberClass: PropTypes.string,
         numberCountForShow: PropTypes.number,
