@@ -6,12 +6,6 @@
 create pagination from Laravel Pagination object. 
 
 
-Fork of project react-laravel-paginex with some improvements and corrections
-
-#### Creators:
-- [Garik Harutyunyan](https://github.com/GHarutyunyan)
-- [Lionix Team](https://github.com/lionix-team)
-
 ## Installation
 
 `npm i react-laravel-paginex`
@@ -147,4 +141,5 @@ params=()=>{
 
 ## Credits
 
-- [Luis Arce](https://github.com/luilliarcec)
+- [Garik Harutyunyan](https://github.com/GHarutyunyan)
+- [Lionix Team](https://github.com/lionix-team)
