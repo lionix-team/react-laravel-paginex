@@ -33,7 +33,8 @@ class Pagination extends Component {
 
     // Check if page is active
     isCurrent = (page) => {
-        return this.state.paginationData.current_page === page;
+        let currentPage = this.state.paginationData.meta ? this.state.paginationData.meta.current_page : this.state.paginationData.current_page;
+        return currentPage === page;
     };
 
     // Handle pagination buttons click event
