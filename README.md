@@ -19,7 +19,7 @@ or
 First import the Pagination component inside 
 your React component.
 ```react
-import {Pagination} from 'react-laravel-paginex'
+import { Pagination } from 'react-laravel-paginex'
 ```
 
 Then you'll be able to use pagination component.
@@ -27,13 +27,13 @@ Then you'll be able to use pagination component.
 #### Example:
 
 ```html
-<Pagination changePage={this.getData} data={data}/>
+<Pagination changePage={this.getData} data={data} />
 ```
 `changePage` prop will run the function 
 ( in our case is `getData()`) when new page selected.
 ##### getData() function example with axios.
 ```javascript
-    getData=(data)=>{
+    getData = (data) => {
         axios.get('getDataEndpoint?page=' + data.page).then(response => {
             this.setState({data:data});
         });
@@ -112,7 +112,7 @@ numbersCountForShow | 2
 activeClass         | active
 
 ##### Example:
-`<Pagination changePage={this.getData} data={data} containerClass={"pagination-container"}/>`
+`<Pagination changePage={this.getData} data={data} containerClass={"pagination-container"} />`
 
 You can use `options` prop by passing options object into it.
 
@@ -126,20 +126,21 @@ options:{
     ...
 }
 ```
-`<Pagination changePage={this.getData} data={data} options={options}/>`
+`<Pagination changePage={this.getData} data={data} options={options} />`
 
 ##### Example:
 You can set your own request params for request
 ```javascript
-params=()=>{
+params = () => {
     return {
        keyword:this.state.keyword
     }
 }
 ```
-`<Pagination changePage={this.getData} data={data} options={options} requestParams={this.params()}/>`
+`<Pagination changePage={this.getData} data={data} options={options} requestParams={this.params()} />`
 
 ## Credits
 
 - [Garik Harutyunyan](https://github.com/GHarutyunyan)
 - [Lionix Team](https://github.com/lionix-team)
+- [Joe Prisk](https://github.com/jprisk)
