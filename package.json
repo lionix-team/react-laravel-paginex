@@ -34,12 +34,12 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.8 || ^17",
-    "react-dom": "^16.8 || ^17"
+    "react": "^16.8 || ^17 || ^18",
+    "react-dom": "^16.8 || ^17 || ^18"
   },
   "devDependencies": {
-    "@types/react": "^16.8 || ^17",
-    "@types/react-dom": "^16.8 || ^17",
+    "@types/react": "^16.8 || ^17 || ^18",
+    "@types/react-dom": "^16.8 || ^17 || ^18",
     "typescript": "^4.5.5"
   }
 }
