@@ -2,6 +2,9 @@
 [![](https://img.shields.io/npm/dt/react-laravel-paginex.svg)](https://www.npmjs.com/package/react-laravel-paginex)
 [![](https://img.shields.io/npm/v/react-laravel-paginex.svg)](https://www.npmjs.com/package/react-laravel-paginex)
 
+---
+Check Larafast - Laravel SaaS Starter Kit [Larafast](https://larafast.com)
+---
 `react-laravel-paginex` will provide you ability to easily
 create pagination from Laravel Pagination object. 
 
